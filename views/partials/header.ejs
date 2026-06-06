@@ -1,0 +1,52 @@
+<header class="container">
+    <div class="username">
+        <a href="/"><%= email %></a>
+    </div>
+
+    <div class="nav-wrapper">
+        <nav class="main-nav">
+            <ul class="nav-list-wrapper">
+                <li><a class="nav-link" href="/">Blog</a></li>
+                <li><a class="nav-link" href="/about">About</a></li>
+                <li><a class="nav-link" href="/newsletter">Newsletter</a></li>
+                <% if(email){ %>
+                    <li><a class="nav-link" href="/blogs/new">New Post</a></li>
+                    <li><a class="nav-link logout-link" href="/logout">Log out</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="burger-menu-icon-wrapper">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>
+
+    <div class="nav-wrapper-mobile">
+        <% if (email) { %>
+            <div class="email-wrapper">
+                <a href="/"><%= email %></a>
+            </div>
+        <% } %>
+
+        <nav>
+            <ul class="nav-list-wrapper-mobile">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/newsletter">Newsletter</a></li>
+                <% if(email){ %>
+                    <li><a href="/blogs/new">New Post</a></li>
+                    <li><a class="logout-link" href="/logout">Log out</a></li>
+                <% } %>
+            </ul>
+        </nav>
+
+        <div class="close-btn-wrapper">
+            <span class="slash slash-1"></span>
+            <span class="slash slash-2"></span>
+        </div>
+    </div>
+</header>
+
+<script src="/javascripts/header.js"></script>

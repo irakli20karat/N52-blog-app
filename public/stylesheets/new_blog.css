@@ -1,0 +1,117 @@
+.new-blog-wrapper {
+    margin: 0 auto;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 223px;
+    line-height: 100%;
+    text-align: center;
+    color: rgba(26, 26, 26, 1);
+    border-top: 1px solid rgba(0, 0, 0, 0.34);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.34);
+    margin-top: 68px;
+}
+
+@media (max-width: 1440px) {
+    .title {
+        font-size: 120px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 60px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 38.4px;
+    margin: 30px auto 0;
+    padding-inline: 50px;
+}
+
+input, textarea {
+    width: 955px;
+    border: 1px solid rgba(109, 110, 118, 0.5);
+    border-radius: 2px;
+    padding: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: rgba(35, 37, 54, 1);
+    resize: none;
+    outline: none;
+}
+
+@media (max-width: 1280px) {
+    input, textarea {
+        width: 700px;
+    }
+}
+
+@media (max-width: 1024px) {
+    input, textarea {
+        width: 560px;
+    }
+}
+
+@media (max-width: 768px) {
+    input, textarea {
+        width: calc(100% - 100px);
+    }
+}
+
+textarea {
+    min-height: 227px;
+}
+
+button {
+    width: 955px;
+    background-color: rgba(26, 26, 26, 1);
+    font-family: Sen, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    vertical-align: middle;
+    color: white;
+    padding: 24px;
+    box-sizing: content-box;
+    border: 1px solid rgba(26, 26, 26, 1);
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+}
+
+@media (max-width: 1280px) {
+    button {
+        width: 700px;
+    }
+}
+
+@media (max-width: 1024px) {
+    button {
+        width: 560px;
+    }
+}
+
+@media (max-width: 768px) {
+    button {
+        width: calc(100% - 100px);
+    }
+}
+
+button:hover {
+    background-color: white;
+    color: rgba(26, 26, 26, 1);
+    border: 1px solid rgba(26, 26, 26, 1);
+}

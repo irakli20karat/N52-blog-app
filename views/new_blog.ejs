@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blog | New Post</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/new_blog.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+
+<%- include('partials/header', { email }); %>
+
+<div class="container new-blog-wrapper">
+    <h2 class="container title">NEW POST</h2>
+    <% if(error){ %>
+    <p><%= error %></p>
+    <% } %>
+</div>
+
+<form class="container" action="/blogs/new" method="POST">
+    <input type="text" name="title" id="title" placeholder="Blog Title" required>
+    <input type="text" name="description" id="description" placeholder="Description" required>
+    <textarea name="content" id="content" placeholder="Message" required></textarea>
+    <button type="submit">Publish</button>
+</form>
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

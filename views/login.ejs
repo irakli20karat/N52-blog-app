@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blog | Sign In</title>
+    <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="./stylesheets/auth.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+
+<%- include('partials/header', {email: null}); %>
+
+<div class="form-container container">
+    <h1 class="title container">SIGN IN</h1>
+
+    <% if (message) { %>
+        <p class="error"><%= message %></p>
+    <% } %>
+
+    <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+    </form>
+
+    <a class="sign-up-btn" href="/register">Don't have an account? Sign up here</a>
+</div>
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

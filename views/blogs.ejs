@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Blog | Blogs</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="./stylesheets/blogs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+<%- include('partials/header', {email}) %>
+
+<div class="container blogs-wrapper">
+
+    <h1 class="title">THE BLOG</h1>
+
+    <section class="recent-blogs-wrapper">
+        <h2>Recent blog posts</h2>
+
+        <div class="row-1">
+            <div class="left-column">
+                <figure class="thumbnail-container">
+                    <img src="/images/thumbnails/thumbnail-1.png" alt="Thumbnail 1">
+                </figure>
+                <div class="meta-info-wrapper">
+                    <span><%= blogs[0].author.email %></span> • <span> <%= blogs[0].date.getDate() %> </span>
+                    <span> <%= blogs[0].date.toLocaleString('default', {month: 'short'}) %> </span>
+                    <span> <%= blogs[0].date.getFullYear() %> </span>
+                </div>
+                <figure class="title-wrapper">
+                    <a href="/"><%= blogs[0].title %></a>
+                    <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                </figure>
+                <div class="description-wrapper">
+                    <p><%= blogs[0].description %></p>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="md-blog-card">
+                    <figure class="thumbnail-container">
+                        <img src="/images/thumbnails/thumbnail-2.png" alt="Thumbnail 2">
+                    </figure>
+                    <div>
+                        <div class="meta-info-wrapper">
+                            <span><%= blogs[1].author.email %></span> • <span> <%= blogs[1].date.getDate() %> </span>
+                            <span> <%= blogs[1].date.toLocaleString('default', {month: 'short'}) %> </span>
+                            <span> <%= blogs[1].date.getFullYear() %> </span>
+                        </div>
+                        <figure class="title-wrapper">
+                            <a href="/"><%= blogs[1].title %></a>
+                        </figure>
+                        <div class="description-wrapper">
+                            <p><%= blogs[1].description %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md-blog-card">
+                    <figure class="thumbnail-container">
+                        <img src="/images/thumbnails/thumbnail-3.png" alt="Thumbnail 3">
+                    </figure>
+                    <div>
+                        <div class="meta-info-wrapper">
+                            <span><%= blogs[2].author.email %></span> • <span> <%= blogs[2].date.getDate() %> </span>
+                            <span> <%= blogs[2].date.toLocaleString('default', {month: 'short'}) %> </span>
+                            <span> <%= blogs[2].date.getFullYear() %> </span>
+                        </div>
+                        <figure class="title-wrapper">
+                            <a href="/"><%= blogs[2].title %></a>
+                        </figure>
+                        <div class="description-wrapper">
+                            <p><%= blogs[2].description %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-2">
+            <div class="lg-blog-card">
+                <figure class="thumbnail-container">
+                    <img src="/images/thumbnails/thumbnail-4.png" alt="Thumbnail 4">
+                </figure>
+                <div>
+                    <div class="meta-info-wrapper">
+                        <span><%= blogs[2].author.email %></span> • <span> <%= blogs[2].date.getDate() %> </span>
+                        <span> <%= blogs[2].date.toLocaleString('default', {month: 'short'}) %> </span>
+                        <span> <%= blogs[2].date.getFullYear() %> </span>
+                    </div>
+                    <figure class="title-wrapper">
+                        <a href="/"><%= blogs[2].title %></a>
+                        <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                    </figure>
+                    <div class="description-wrapper">
+                        <p><%= blogs[2].description %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+</body>
+</html>
