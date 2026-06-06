@@ -6,6 +6,7 @@
     <title>The Blog | Blogs</title>
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="./stylesheets/blogs.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,8 +106,37 @@
         </div>
     </section>
 
+    <section class="all-blog-posts-wrapper">
+        <h2>All blog posts</h2>
+
+
+        <div class="all-blog-posts-grid">
+            <% blogs.forEach(b => { %>
+            <div class="posts-blog-card">
+                <figure class="thumbnail-container">
+                    <img src="/images/thumbnails/all-blog-posts-placeholder.jpg" alt="Thumbnail placeholder">
+                </figure>
+                <div>
+                    <div class="meta-info-wrapper">
+                        <span><%= b.author.email %></span> • <span> <%= b.date.getDate() %> </span>
+                        <span> <%= b.date.toLocaleString('default', {month: 'short'}) %> </span>
+                        <span> <%= b.date.getFullYear() %> </span>
+                    </div>
+                    <figure class="title-wrapper">
+                        <a href="/"><%= b.title %></a>
+                    </figure>
+                    <div class="description-wrapper">
+                        <p><%= b.description %></p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </section>
+
 </div>
 
+<%- include('partials/footer'); %>
 
 </body>
 </html>
