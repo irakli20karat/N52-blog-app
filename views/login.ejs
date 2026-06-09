@@ -25,15 +25,17 @@
     <% } %>
 
     <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Sign In</button>
+        <span class="input-wrapper"><input type="email" name="email" placeholder="Email" required></span>
+        <span class="input-wrapper"><input class="password" type="password" name="password" placeholder="Password" required><figure class="togglePasswordButton"><img src="images/eye-icon.svg"></figure></span>
+        <span class="input-wrapper"><button type="submit">Sign In</button></span>
     </form>
 
     <a class="sign-up-btn" href="/register">Don't have an account? Sign up here</a>
 </div>
 
 <%- include('partials/footer'); %>
+
+<script src="/javascripts/togglePassword.js"></script>
 
 </body>
 </html>

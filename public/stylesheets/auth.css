@@ -71,13 +71,13 @@ input {
 }
 
 @media (max-width: 1440px) {
-    input {
+    .input-wrapper {
         width: 755px;
     }
 }
 
 @media (max-width: 1024px) {
-    input {
+    .input-wrapper {
         width: 90%;
     }
 }
@@ -103,18 +103,6 @@ button {
 button:hover {
     background-color: #FFF;
     color: #1A1A1A;
-}
-
-@media (max-width: 1440px) {
-    button {
-        width: 755px;
-    }
-}
-
-@media (max-width: 1024px) {
-    button {
-        width: 90%;
-    }
 }
 
 .sign-up-btn {
@@ -155,4 +143,22 @@ button:hover {
     margin-top: 35px;
     color: darkred;
     text-align: center;
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+.input-wrapper figure img {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.input-wrapper figure img:hover {
+    opacity: 1;
 }
