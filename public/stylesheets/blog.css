@@ -30,6 +30,8 @@
 
 .section-header {
     margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 24px;
 }
 
 span {
