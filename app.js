@@ -9,7 +9,7 @@ const connectDB = require('./db');
 connectDB();
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const aboutRouter = require('./routes/about');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const blogsRouter = require('./routes/blogs');
@@ -23,22 +23,22 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 60000}
+    cookie: { maxAge: 60000 }
 }));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/blogs', blogsRouter);
 app.use('/logout', logoutRouter);
+app.use('/about', aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

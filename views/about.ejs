@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Blog | About</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+<%- include('partials/header', {email}) %>
+
+<div class="container main-wrapper">
+    <h1 class="title">Ika</h1>
+
+    <figure class="about-image-wrapper">
+        <img src="/images/thumbnails/about-me.jpg">
+    </figure>
+
+    <div class="text-section">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-details">
+            Ametuer programmer who wants to be better than majority <i>(Does he know?)</i>
+        </p>
+    </div>
+
+    <div class="text-section">
+        <h2 class="section-title">Skills</h2>
+        <ul class="section-details">
+            <li>C#</li>
+            <li>C++</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>SQL</li>
+            <li>CSS + HTML</li>
+        </ul>
+    </div>
+
+    <div class="text-section">
+        <h2 class="section-title">Experience</h2>
+        <ul class="section-details">
+            <li>Created <a href="https://agstones.info" target="_blank">AGStones.info</a></li>
+            <li>Assisted with the creation of <a href="https://neoglass.ge" target="_blank">Neoglass.ge</a> website</li>
+        </ul>
+    </div>
+
+    <div class="text-section">
+        <h2 class="section-title">Education</h2>
+        <ul class="section-details">
+            <li>Attended and successfully finished EPAM courses</li>
+            <li>Mziuri C++ (I) & Web Dev (I)</li>
+            <li>Studiued C#, JS and SQL with a private tutor</li>
+        </ul>
+    </div>
+</div>
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

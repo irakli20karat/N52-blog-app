@@ -1,0 +1,40 @@
+.main-wrapper {
+    margin: 60px auto 0;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 244px;
+    border-top: 1px solid rgba(0, 0, 0, 0.34);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.34);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-image-wrapper,
+.about-image-wrapper img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.text-section {
+    margin-top: 32px;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.section-details {
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(102, 112, 133, 1);
+}
+
+.text-section ul {
+    list-style-type: initial;
+    margin-left: 20px;
+}

@@ -9,8 +9,6 @@ router.get('/', requireAuth, async function (req, res, next) {
     const email = req.session.user.email;
     const blogs = await Blog.find().sort({ date: -1 }).populate("author", "email")
 
-    console.log(blogs)
-
     res.render('blogs', { email, blogs });
 });
 
