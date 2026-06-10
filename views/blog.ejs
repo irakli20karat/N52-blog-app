@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Blog | Blogs</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+<%- include('partials/header', {email}) %>
+
+<div class="container main-wrapper">
+    <div class="recent-blog-posts">
+        <p class="section-header">Recent blog posts</p>
+        <% blogs.forEach(blog => { %>
+            <div class="recent-blog-card">
+                <figure class="blog-card-image-wrapper">
+                    <img src="/images/thumbnails/all-blog-posts-placeholder.jpg">
+                </figure>
+                <div class="recent-blog-card-date">
+                    <span><%= blog.date.toLocaleDateString('en-US', { weekday: 'long' }) %></span>, <span> <%= blog.date.getDate() %> </span>
+                    <span><%= blog.date.toLocaleString('default', {month: 'short'}) %> </span>
+                    <span><%= blog.date.getFullYear() %> </span>
+                </div>
+                <figure class="title-wrapper">
+                    <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+                    <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                </figure>
+                <div class="description-wrapper">
+                    <p><%= blog.description %></p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="right-column">
+        <div class="blog-details">
+            <div class="section-header">
+                <span><%= blog.date.toLocaleDateString('en-US', { weekday: 'long' }) %></span>, <span> <%= blog.date.getDate() %> </span>
+                <span><%= blog.date.toLocaleString('default', {month: 'short'}) %> </span>
+                <span><%= blog.date.getFullYear() %> </span>
+            </div>
+            <h1 class="blog-title"><%= blog.title %></p>
+            <div class="blog-content-wrapper">
+                <p><%= blog.content %></p>
+            </div>
+        </div>
+
+        <div class="subscribe-section">
+            <span class="newslatter-header">Newlatters</span>
+            <p class="newlatters-title">Stories and interviews</p>
+            <p class="newlatters-description">Subscribe to learn about new product features, the latest in technology, solutions, and updates.</p>
+            <div class="input-wrapper">
+                <div class="input-email">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+                <p>We care about your data in our <a href="/">privacy policy</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

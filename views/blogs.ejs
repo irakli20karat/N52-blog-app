@@ -35,7 +35,7 @@
                     <span> <%= blogs[0].date.getFullYear() %> </span>
                 </div>
                 <figure class="title-wrapper">
-                    <a href="/"><%= blogs[0].title %></a>
+                    <a href="/blogs/<%= blogs[0]._id %>"><%= blogs[0].title %></a>
                     <img src="/images/arrow-icon.svg" alt="arrow-icon">
                 </figure>
                 <div class="description-wrapper">
@@ -55,7 +55,7 @@
                             <span> <%= blogs[1].date.getFullYear() %> </span>
                         </div>
                         <figure class="title-wrapper">
-                            <a href="/"><%= blogs[1].title %></a>
+                            <a href="/blogs/<%= blogs[1]._id %>"><%= blogs[1].title %></a>
                         </figure>
                         <div class="description-wrapper">
                             <p><%= blogs[1].description %></p>
@@ -73,7 +73,7 @@
                             <span> <%= blogs[2].date.getFullYear() %> </span>
                         </div>
                         <figure class="title-wrapper">
-                            <a href="/"><%= blogs[2].title %></a>
+                            <a href="/blogs/<%= blogs[2]._id %>"><%= blogs[2].title %></a>
                         </figure>
                         <div class="description-wrapper">
                             <p><%= blogs[2].description %></p>
@@ -90,16 +90,16 @@
                 </figure>
                 <div>
                     <div class="meta-info-wrapper">
-                        <span><%= blogs[2].author.email %></span> • <span> <%= blogs[2].date.getDate() %> </span>
-                        <span> <%= blogs[2].date.toLocaleString('default', {month: 'short'}) %> </span>
-                        <span> <%= blogs[2].date.getFullYear() %> </span>
+                        <span><%= blogs[3].author.email %></span> • <span> <%= blogs[3].date.getDate() %> </span>
+                        <span> <%= blogs[3].date.toLocaleString('default', {month: 'short'}) %> </span>
+                        <span> <%= blogs[3].date.getFullYear() %> </span>
                     </div>
                     <figure class="title-wrapper">
-                        <a href="/"><%= blogs[2].title %></a>
+                        <a href="/blogs/<%= blogs[3]._id %>"><%= blogs[3].title %></a>
                         <img src="/images/arrow-icon.svg" alt="arrow-icon">
                     </figure>
                     <div class="description-wrapper">
-                        <p><%= blogs[2].description %></p>
+                        <p><%= blogs[3].description %></p>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                         <span> <%= b.date.getFullYear() %> </span>
                     </div>
                     <figure class="title-wrapper">
-                        <a href="/"><%= b.title %></a>
+                        <a href="/blogs/<%= b._id %>"><%= b.title %></a>
                     </figure>
                     <div class="description-wrapper">
                         <p><%= b.description %></p>
