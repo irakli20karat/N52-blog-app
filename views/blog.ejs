@@ -44,6 +44,7 @@
     <div class="right-column">
         <div class="blog-details">
             <div class="section-header">
+                <span><%= blog.author.email %> • </span>
                 <span><%= blog.date.toLocaleDateString('en-US', { weekday: 'long' }) %></span>, <span> <%= blog.date.getDate() %> </span>
                 <span><%= blog.date.toLocaleString('default', {month: 'short'}) %> </span>
                 <span><%= blog.date.getFullYear() %> </span>

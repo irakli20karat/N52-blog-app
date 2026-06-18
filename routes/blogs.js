@@ -16,7 +16,7 @@ router.get('/:id', requireAuth, async function (req, res, next) {
     const id = req.params.id;
 
     try {
-        const blog = await Blog.findOne({ _id: id });
+        const blog = await Blog.findOne({ _id: id }).populate("author");
 
         if (!blog) {
             res.redirect('/blogs');
