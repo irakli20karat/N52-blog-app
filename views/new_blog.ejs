@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/new_blog.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/counter.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
@@ -25,14 +26,17 @@
     <% } %>
 </div>
 
-<form class="container" action="/blogs/new" method="POST">
-    <input type="text" name="title" id="title" placeholder="Blog Title" required>
-    <input type="text" name="description" id="description" placeholder="Description" required>
-    <textarea name="content" id="content" placeholder="Message" required></textarea>
+<form class="container" action="/blogs/new" method="POST" enctype="multipart/form-data">
+    <span class="input-wrapper"><input type="text" name="title" id="title" placeholder="Blog Title" id="title" required><p class="counter" max="<%= consts.MAX_TITLE_LENGTH %>" for="title"></p></span>
+    <span class="input-wrapper"><input type="text" name="description" id="description" placeholder="Description" id="description" required><p class="counter" max="<%= consts.MAX_DESCRIPTION_LENGTH %>" for="description"></p></span>
+    <span class="input-wrapper"><textarea name="content" placeholder="Message" id="content" id="content" required></textarea><p class="counter" max="<%= consts.MAX_CONTENT_LENGTH %>" for="content"></p></span>
+    <input type="file" name="thumbnail" id="thumbnail" accept="image/png, image/jpeg" class="upload-file-button" required>
     <button type="submit">Publish</button>
 </form>
 
 <%- include('partials/footer'); %>
+
+<script src="/javascripts/counter.js"></script>
 
 </body>
 </html>

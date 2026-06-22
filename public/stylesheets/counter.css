@@ -1,0 +1,12 @@
+.counter {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transform: translateY(-50%);
+    font-size: small;
+    color: rgba(109, 110, 118, 0.5);
+}
+
+.out-of-limits {
+    color: red;
+}

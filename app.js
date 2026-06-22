@@ -15,6 +15,7 @@ const loginRouter = require('./routes/login');
 const blogsRouter = require('./routes/blogs');
 const logoutRouter = require('./routes/logout');
 const newsletterRouter = require('./routes/newsletter');
+const projectsRouter = require('./routes/projects');
 
 const app = express();
 
@@ -31,7 +32,7 @@ app.use(session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 6000000 }
 }));
 
 app.use('/', indexRouter);
@@ -41,6 +42,7 @@ app.use('/blogs', blogsRouter);
 app.use('/logout', logoutRouter);
 app.use('/about', aboutRouter);
 app.use('/newsletter', newsletterRouter);
+app.use('/projects', projectsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -23,7 +23,7 @@
         <% blogs.forEach(blog => { %>
             <div class="recent-blog-card">
                 <figure class="blog-card-image-wrapper">
-                    <img src="/images/thumbnails/all-blog-posts-placeholder.jpg">
+                    <img src="<%= blog.thumbnail %>">
                 </figure>
                 <div class="recent-blog-card-date">
                     <span><%= blog.date.toLocaleDateString('en-US', { weekday: 'long' }) %></span>, <span> <%= blog.date.getDate() %> </span>
@@ -51,7 +51,11 @@
             </div>
             <h1 class="blog-title"><%= blog.title %></p>
             <div class="blog-content-wrapper">
-                <p><%= blog.content %></p>
+                <% blog.content.split('\n').forEach(paragraph => { %>
+                    <% if(paragraph.trim()) { %>
+                        <p><%- paragraph %></p>
+                    <% } %>        
+                <% }) %>
             </div>
         </div>
 

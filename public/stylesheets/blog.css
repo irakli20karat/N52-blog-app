@@ -20,6 +20,9 @@
 
 .blog-content-wrapper {
     margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .blog-content-wrapper p {

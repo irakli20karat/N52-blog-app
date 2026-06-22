@@ -40,7 +40,8 @@ form {
     padding-inline: 50px;
 }
 
-input, textarea {
+input,
+textarea {
     width: 955px;
     border: 1px solid rgba(109, 110, 118, 0.5);
     border-radius: 2px;
@@ -53,20 +54,30 @@ input, textarea {
     outline: none;
 }
 
+.input-wrapper {
+    display: flex;
+}
+
 @media (max-width: 1280px) {
-    input, textarea {
+
+    input,
+    textarea {
         width: 700px;
     }
 }
 
 @media (max-width: 1024px) {
-    input, textarea {
+
+    input,
+    textarea {
         width: 560px;
     }
 }
 
 @media (max-width: 768px) {
-    input, textarea {
+
+    input,
+    textarea {
         width: calc(100% - 100px);
     }
 }
@@ -90,6 +101,15 @@ button {
     cursor: pointer;
     transition: all 0.2s;
     border-radius: 2px;
+}
+
+.upload-file-button::file-selector-button {
+    background-color: rgba(26, 26, 26, 1);
+    font-family: Sen, sans-serif;
+    border: 1px solid rgba(26, 26, 26, 1);
+    padding: 10px;
+    margin-right: 10px;
+    color: white;
 }
 
 @media (max-width: 1280px) {

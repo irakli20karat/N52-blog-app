@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Blog | Projects</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="./stylesheets/projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+<body>
+<%- include('partials/header', {email}) %>
+
+<div class="container projects-wrapper">
+
+    <h1 class="title">PROJECTS</h1>
+
+    <section class="projects-list-section">
+        <p class="section-title">List Project</p>
+        
+        <div class="projects-list-double-wrapper">
+            <div class="project-card">
+                <figure class="figure-low">
+                    <img class="figure-low" src="<%= projects[0].thumbnail %>">
+                </figure>
+                
+                <figure class="title-wrapper">
+                    <a class="project-title">
+                        <%= projects[0].title %>
+                    </a>
+                    <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                </figure>
+
+                <p class="project-description">
+                    <%= projects[0].description %>
+                </p>
+            </div>
+
+            <div class="project-card">
+                <figure class="figure-low">
+                    <img class="figure-low" src="<%= projects[1].thumbnail %>">
+                </figure>
+                
+                <figure class="title-wrapper">
+                    <a class="project-title">
+                        <%= projects[1].title %>
+                    </a>
+                    <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                </figure>
+
+                <p class="project-description">
+                    <%= projects[1].description %>
+                </p>
+            </div>
+        </div>
+
+        <div class="projects-list-single-wrapper">
+            <div class="project-card">
+                <figure class="figure-tall">
+                    <img class="figure-tall" src="<%= projects[2].thumbnail %>">
+                </figure>
+                
+                <figure class="title-wrapper">
+                    <a class="project-title">
+                        <%= projects[2].title %>
+                    </a>
+                    <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                </figure>
+
+                <p class="project-description">
+                    <%= projects[2].description %>
+                </p>
+            </div>
+        </div>
+
+        <% if(projects.length > 3) { %>
+
+            <div class="projects-list-double-wrapper">
+                
+                <% projects.slice(3).forEach(project => { %>
+
+                <div class="project-card">
+                    <figure class="figure-low">
+                        <img class="figure-low" src="<%= project.thumbnail %>">
+                    </figure>
+                    
+                    <figure class="title-wrapper">
+                        <a class="project-title">
+                            <%= project.title %>
+                        </a>
+                        <img src="/images/arrow-icon.svg" alt="arrow-icon">
+                    </figure>
+
+                    <p class="project-description">
+                        <%= project.description %>
+                    </p>
+                </div>
+
+                <% }) %>
+            
+            </div>
+        <% } %>
+
+    </section>
+</div>
+
+<%- include('partials/footer'); %>
+
+</body>
+</html>

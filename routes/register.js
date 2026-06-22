@@ -1,9 +1,10 @@
 const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
+const { MIN_PASSWORD_LENGTH } = require('../consts/consts');
 
 router.get('/', function(req, res, next) {
-    return res.render('register', { message: '' });
+    return res.render('register', { message: '', consts: { MIN_PASSWORD_LENGTH } });
 });
 
 router.post('/', async function(req, res, next) {
@@ -12,8 +13,8 @@ router.post('/', async function(req, res, next) {
         return res.render('register', { message: 'Passwords do not match'});
     }
 
-    if (password.length < 8) {
-        return res.render('register', { message: 'Password must be at least 8 characters'});
+    if (password.length < MIN_PASSWORD_LENGTH) {
+        return res.render('register', { message: `Password must be at least ${MIN_PASSWORD_LENGTH} characters`});
     }
 
     try {
@@ -36,7 +37,7 @@ router.post('/', async function(req, res, next) {
         return res.redirect('/blogs');
     } catch (error) {
         console.log(error);
-        return res.render('register', { message: 'Server error', error});
+        return res.redirect('/');
     }
 })
 
