@@ -110,7 +110,7 @@
         <h2>All blog posts</h2>
 
 
-        <div class="all-blog-posts-grid">
+        <div id="blogs-grid" class="all-blog-posts-grid">
             <% blogs.forEach(b => { %>
             <div class="posts-blog-card">
                 <figure class="thumbnail-container">
@@ -132,11 +132,75 @@
             </div>
             <% }) %>
         </div>
+
+
+        <a id="blogs-loader"></a>
     </section>
 
 </div>
 
 <%- include('partials/footer'); %>
+
+<script>
+    const blogsGrid = document.getElementById("blogs-grid");
+    const loader = document.getElementById("blogs-loader");
+    let allBlogs = document.querySelectorAll('.posts-blog-card');
+    let latestId = "<%= blogs[blogs.length-1]._id %>";
+
+    const loadBlogsObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                fetchBlogs(latestId);
+            }
+        });
+    });
+
+    const toggleClassObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('blog-load');
+            }
+        });
+    });
+
+    const fetchBlogs = async (afterId) => {
+        let fetchData = await fetch(`/blogs/after/${afterId}`);
+        const res = await fetchData.json();
+
+        res.forEach(b => {
+            let cardDetails = `<figure class="thumbnail-container">
+                                    <img src="${b.thumbnail}" alt="Thumbnail">
+                                </figure>
+                                <div>
+                                    <div class="meta-info-wrapper">
+                                        <span>${b.author.email}</span> • <span> ${ new Date(b.date).getDate() } </span>
+                                        <span>${ new Date(b.date).toLocaleString('default', {month: 'short'}) } </span>
+                                        <span>${ new Date(b.date).getFullYear() } </span>
+                                    </div>
+                                    <figure class="title-wrapper">
+                                        <a href="/blogs/${ b._id }">${ b.title }</a>
+                                    </figure>
+                                    <div class="description-wrapper">
+                                        <p>${ b.description }</p>
+                                    </div>
+                                </div>`
+
+            const cardContainer = document.createElement('div');
+            cardContainer.insertAdjacentHTML('beforeend', cardDetails);
+            cardContainer.classList.add('posts-blog-card') 
+
+            blogsGrid.appendChild(cardContainer);
+            latestId = b._id;
+            toggleClassObserver.observe(cardContainer);
+        })
+    }
+
+    loadBlogsObserver.observe(loader);
+
+    document.querySelectorAll('.posts-blog-card').forEach(card => {
+        toggleClassObserver.observe(card);
+    });
+</script>
 
 </body>
 </html>

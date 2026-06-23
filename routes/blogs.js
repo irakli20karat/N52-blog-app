@@ -10,7 +10,7 @@ const fs = require('fs');
 
 router.get('/', requireAuth, async function (req, res, next) {
     const email = req.session.user.email;
-    const blogs = await Blog.find().sort({ date: -1 }).populate("author", "email")
+    const blogs = await Blog.find().limit(6).sort({ date: -1 }).populate("author", "email");
     blogs.forEach(b => {
         if (!b.thumbnail) b.thumbnail = '/images/thumbnails/all-blog-posts-placeholder.jpg';
     })
@@ -98,5 +98,18 @@ router.get('/:id', requireAuth, async function (req, res, next) {
         res.redirect('/blogs');
     }
 })
+
+router.get('/after/:id', requireAuth, async function (req, res, next) {
+    const email = req.session.user.email;
+
+    const referenceBlog = await Blog.findById(req.params.id).select('date');
+
+    const blogs = await Blog.find({ date: { $lt: referenceBlog.date } })
+        .sort({ date: -1 })
+        .limit(6)
+        .populate('author', 'email');
+
+    res.json(blogs);
+});
 
 module.exports = router;

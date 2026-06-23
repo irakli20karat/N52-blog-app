@@ -221,6 +221,7 @@
     max-width: 384px;
     max-height: 444px;
     overflow: hidden;
+    opacity: 0;
 }
 
 .posts-blog-card .thumbnail-container img {
@@ -252,5 +253,18 @@
     .all-blog-posts-grid {
         display: flex;
         flex-direction: column;
+    }
+}
+
+.blog-load {
+    animation: opacity-in 0.3s 0.1s forwards;
+}
+
+@keyframes opacity-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
     }
 }
