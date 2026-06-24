@@ -40,7 +40,7 @@
             <% blogs.forEach(blog => { %>
                 <div class="recent-blog-card">
                     <figure class="blog-card-image-wrapper">
-                        <img src="/images/thumbnails/all-blog-posts-placeholder.jpg">
+                        <img src="<%= blog.thumbnail %>">
                     </figure>
                     <div class="recent-blog-card-date">
                         <span><%= blog.date.toLocaleDateString('en-US', { weekday: 'long' }) %></span>, <span> <%= blog.date.getDate() %> </span>

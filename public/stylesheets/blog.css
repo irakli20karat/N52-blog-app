@@ -299,6 +299,7 @@ input {
 .reactions {
     flex-shrink: 0;
     display: flex;
+    align-items: center;
     gap: 8px;
 }
 
@@ -547,4 +548,8 @@ input {
     width: 32px;
     height: 32px;
     font-size: 14px;
+}
+
+.likes-count {
+
 }

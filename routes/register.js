@@ -10,17 +10,17 @@ router.get('/', function(req, res, next) {
 router.post('/', async function(req, res, next) {
     const { email, password, confirmPassword } = req.body;
     if ( password !== confirmPassword ) {
-        return res.render('register', { message: 'Passwords do not match'});
+        return res.render('register', { message: 'Passwords do not match', consts: { MIN_PASSWORD_LENGTH } });
     }
 
     if (password.length < MIN_PASSWORD_LENGTH) {
-        return res.render('register', { message: `Password must be at least ${MIN_PASSWORD_LENGTH} characters`});
+        return res.render('register', { message: `Password must be at least ${MIN_PASSWORD_LENGTH} characters`, consts: { MIN_PASSWORD_LENGTH }});
     }
 
     try {
         const exists = await User.findOne({ email });
         if (exists) {
-            return res.render('register', { message: 'Email already in use'});
+            return res.render('register', { message: 'Email already in use', consts: { MIN_PASSWORD_LENGTH }});
         }
 
         const newUser = new User({
