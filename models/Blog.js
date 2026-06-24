@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const {mongo} = require("mongoose");
-const { MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH, MAX_CONTENT_LENGTH } = require('../consts/consts')
 
 const commentSchema = new mongoose.Schema({
     author: {
@@ -16,6 +15,9 @@ const commentSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    editedAt: {
+        type: Date
+    },
     replies: [{
         content: {
             type: String,
@@ -29,9 +31,33 @@ const commentSchema = new mongoose.Schema({
         date: {
             type: Date,
             default: Date.now
-        }
+        },
+        editedAt: {
+            type: Date
+        },
+        likes: [{
+            author: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+                required: true
+            }
+        }],
+        dislikes: [{
+            author: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+                required: true
+            }
+        }]
     }],
     likes: [{
+        author: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        }
+    }],
+    dislikes: [{
         author: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
@@ -45,19 +71,22 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        maxlength: MAX_TITLE_LENGTH
+        maxlength: 40
     },
     description: {
         type: String,
         required: true,
         trim: true,
-        maxlength: MAX_DESCRIPTION_LENGTH
+        maxlength: 200
     },
     content: {
         type: String,
         required: true,
         trim: true,
-        maxlength: MAX_CONTENT_LENGTH
+        maxlength: 2000
+    },
+    thumbnail: {
+        type: String
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
@@ -67,10 +96,6 @@ const blogSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
-    },
-    thumbnail: {
-        type: String,
-        default: '/images/thumbnails/all-blog-posts-placeholder.jpg'
     },
     comments: [commentSchema]
 }, {
